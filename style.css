@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f7efe5;
+    color: #4a3f35;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero {
+    background: #e8d3c1;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.cta {
+    background: #b26b43;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.cta.secondary {
+    background: #8c5a3c;
+}
+
+.cta.small {
+    padding: 8px 16px;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #f2e4d8;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.event-card {
+    background: #f2e4d8;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.photo-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.photo.placeholder {
+    width: 150px;
+    height: 150px;
+    background: #d8c2b0;
+    border-radius: 10px;
+}
+
+footer {
+    background: #d8c2b0;
+    padding: 20px;
+    margin-top: 40px;
+}
