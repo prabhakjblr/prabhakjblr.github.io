@@ -3,130 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta viewport="width=device-width, initial-scale=1.0">
     <title>Huddle Coffee Co.</title>
+
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<script>
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const navMenu = document.getElementById('navMenu');
-
-    hamburgerBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('open');
-        hamburgerBtn.classList.toggle('active');
-    });
-</script>
-<!-- Floating Social Buttons -->
-<div class="floating-buttons">
-    <a href="https://instagram.com/huddlecoffee.co" target="_blank" class="float-btn insta-float">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.5" cy="6.5" r="1"></circle>
-        </svg>
-    </a>
-
-    <a href="https://wa.me/919686647373" target="_blank" class="float-btn whatsapp-float">
-        <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor">
-            <path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.2 7L4 29l7-2.2c2 1.2 4.4 2 7 2 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-2.2 0-4.2-.6-6-1.8l-.4-.2-4.2 1.2 1.2-4-.2-.4C5.6 18.2 5 16.6 5 15c0-6 5-11 11-11s11 5 11 11-5 11-11 11zm6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.1-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2 0-.4-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.8 3.5 2.2 1 2.2.7 2.6.7.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1.1-.1-.2-.3-.3-.6-.5z"/>
-        </svg>
-    </a>
-</div>
-
 <body>
 
-    <!-- Header -->
-<header class="header">
-    <div class="logo">
-        <img src="images/huddle-logo.png" alt="Huddle Coffee Co">
+    <!-- Floating Social Buttons -->
+    <div class="floating-buttons">
+        <a href="https://instagram.com/huddlecoffee.co" target="_blank" class="float-btn insta-float">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+        </a>
+
+        <a href="https://wa.me/919686647373" target="_blank" class="float-btn whatsapp-float">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor">
+                <path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.2 7L4 29l7-2.2c2 1.2 4.4 2 7 2 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-2.2 0-4.2-.6-6-1.8l-.4-.2-4.2 1.2 1.2-4-.2-.4C5.6 18.2 5 16.6 5 15c0-6 5-11 11-11s11 5 11 11-5 11-11 11zm6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.1-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.4.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.1.1-.2 0-.4-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.8 3.5 2.2 1 2.2.7 2.6.7.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1.1-.1-.2-.3-.3-.6-.5z"/>
+            </svg>
+        </a>
     </div>
 
-    <!-- Hamburger Checkbox -->
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="images/huddle-logo.png" alt="Huddle Coffee Co">
+        </div>
+<!-- Dark Mode Toggle -->
+	<button id="darkToggle" class="dark-toggle">☾</button>
+        <!-- Hamburger Icon -->
+        <div id="hamburgerBtn" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-    <!-- Hamburger Icon -->
-    <label for="menu-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
-
-    <!-- Navigation -->
-    <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#community">Community</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+        <!-- Navigation -->
+        <nav id="navMenu" class="nav-links">
+            <a href="#home">why we exist</a>
+            <a href="#community">events</a>
+            <!-- a href="#gallery">Gallery</a -->
+            <a href="#contact">connect</a>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-text slide-up">
-            <h1>warm coffee. warm people.</h1>
-            <p>your cozy neighborhood café in hennur, blr.</p>
+            <h1>huddle. your space</h1>
+            <p>crafted for you in hennur, blr.</p>
         </div>
+    </section>
+
+    <!-- why we exist section-->
+    <section id="why we exist" class="community fade-in">
+        <h2>why we exist</h2>
+        <p>we don't need another cafe, another boring glossy space where fancy adjectives hide unispired food and drink. where community is just a hollow word to get more footfall. <br>
+what we need is a space that's truly our's - where we can meet, bond, make connections, do deep work, have fun and truly huddle - over great coffee and simple food. a place where we can live our lives and explore ourselves</p>
     </section>
 
     <!-- Community Section -->
     <section id="community" class="community fade-in">
-        <h2>Community Moments</h2>
-        <p>Workshops, conversations, creativity — Huddle is where people connect.</p>
-        <img src="https://placehold.co/1200x600/cccccc/000000?text=Community+Gathering" class="community-img">
+        <h2>events @ huddle</h2>
+        <p>open mic, jive, creativity. huddle - it's where the world gets smaller!</p>
+        <!-- img src="https://placehold.co/1200x600/cccccc/000000?text=Community+Gathering" class="community-img" -->
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery fade-in">
-        <h2>Gallery</h2>
-        <div class="gallery-grid">
-            <img src="https://placehold.co/400x400/cccccc/000000?text=Cafe+Interior" class="zoom">
-	    <img src="https://placehold.co/400x400/cccccc/000000?text=Coffee+Art" class="zoom">
-	    <img src="https://placehold.co/400x400/cccccc/000000?text=Pastries" class="zoom">
-	    <img src="https://placehold.co/400x400/cccccc/000000?text=Warm+Lights" class="zoom">
+<section class="events">
+  <div class="carousel">
+    <div class="slide">
+      <img src="images/jive-junction.jpeg" alt="Jive Junction Event">
+      <h3>Jive Junction — Dance. Connect. Have Fun.</h3>
+      <p>Every last Friday of the month at Huddle Coffee Co.</p>
+    </div>
+    <div class="slide">
+      <img src="images/open-mic.png" alt="Open Mic Night">
+      <h3>Open Mic Night — Make Yours Unforgettable!</h3>
+      <p>Every Wednesday, 7:00 PM.</p>
+    </div>
+  </div>
+</section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact fade-in">
+        <h2>connect</h2>
+
+        <p>262, kempe gowda rd,<br>
+           arkavathy layout, block 20,<br>
+           hennur, bengaluru – 560043</p>
+
+        <!-- Instagram Link -->
+        <p>
+            <a href="https://instagram.com/huddlecoffee.co" 
+               target="_blank" 
+               class="insta-icon">
+               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+               </svg>
+            </a>
+        </p>
+
+        <!-- Google Maps Embed -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.548930934373!2d77.634227!3d13.040212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae170e3f0e7c4f%3A0x4b9d0f5f0e0e0e0!2sHuddle%20Coffee%20Co.!5e0!3m2!1sen!2sin!4v1691769999999"
+                width="100%" height="350" style="border:0; border-radius:12px;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact fade-in">
-    <h2>Contact Us</h2>
-
-    <p>262, Kempe Gowda Road,<br>
-       Arkavathy Layout, Block 20,<br>
-       Hennur, Bengaluru – 560043</p>
-
-    <!-- Instagram Link -->
-    <p>
-        <a href="https://instagram.com/huddlecoffee.co" 
-   target="_blank" 
-   class="insta-icon">
-   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-   </svg>
-</a>
-
-    </p>
-
-    <!-- Google Maps Embed -->
-   <div class="map-container">
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.548930934373!2d77.634227!3d13.040212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae170e3f0e7c4f%3A0x4b9d0f5f0e0e0e0!2sHuddle%20Coffee%20Co.!5e0!3m2!1sen!2sin!4v1691769999999"
-        width="100%" height="350" style="border:0; border-radius:12px;"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
-</section>
 
     <!-- Footer -->
     <footer class="footer fade-in">
         <p>© 2026 Huddle Coffee Co. | Crafted with warmth</p>
     </footer>
+
+    <!-- Hamburger Script -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            hamburgerBtn.classList.toggle('active');
+        });
+    </script>
+<script>
+    const darkToggle = document.getElementById('darkToggle');
+
+    darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+</script>
+<script>
+const carousel = document.querySelector('.carousel');
+let scrollAmount = 0;
+setInterval(() => {
+  scrollAmount += 340;
+  if (scrollAmount >= carousel.scrollWidth) scrollAmount = 0;
+  carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+}, 4000);
+</script>
 
 </body>
 </html>
