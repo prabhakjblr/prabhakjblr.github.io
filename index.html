@@ -60,33 +60,39 @@
         </div>
     </section>
 
-    <!-- why we exist section-->
-    <section id="why we exist" class="community fade-in">
-        <h2>why we exist</h2>
-        <p>we don't need another cafe, another boring glossy space where fancy adjectives hide unispired food and drink. where community is just a hollow word to get more footfall. <br>
-what we need is a space that's truly our's - where we can meet, bond, make connections, do deep work, have fun and truly huddle - over great coffee and simple food. a place where we can live our lives and explore ourselves</p>
-    </section>
+<!-- why we exist section -->
+<section id="why-we-exist" class="community fade-in">
+    <h2>why we exist</h2>
+    <p>we don't need another cafe, another boring glossy space where fancy adjectives hide unispired food and drink. where community is just a hollow word to get more footfall. <br>
+    what we need is a space that's truly our's - where we can meet, bond, make connections, do deep work, have fun and truly huddle - over great coffee and simple food. a place where we can live our lives and explore ourselves</p>
+</section>
 
-    <!-- Community Section -->
-    <section id="community" class="community fade-in">
-        <h2>events @ huddle</h2>
-        <p>open mic, jive, creativity. huddle - it's where the world gets smaller!</p>
-        <!-- img src="https://placehold.co/1200x600/cccccc/000000?text=Community+Gathering" class="community-img" -->
-    </section>
+<!-- Community Section -->
+<section id="community" class="community fade-in">
+    <h2>events @ huddle</h2>
+    <p>open mic, jive, creativity. huddle - it's where the world gets smaller!</p>
+</section>
 
+<!-- ⭐ EVENTS SECTION (Corrected) -->
 <section class="events">
   <div class="carousel">
-    <div class="slide">
-      <img src="images/jive-junction.jpeg" alt="Jive Junction Event">
-      <h3>Jive Junction — Dance. Connect. Have Fun.</h3>
-      <p>Every last Friday of the month at Huddle Coffee Co.</p>
-    </div>
+    
+    <!-- Open Mic Slide -->
     <div class="slide">
       <img src="images/open-mic.png" alt="Open Mic Night">
-      <h3>Open Mic Night — Make Yours Unforgettable!</h3>
-      <p>Every Wednesday, 7:00 PM.</p>
+      <p>Open Mic Night — Make Yours Unforgettable!</p>
+  <!-- ⭐ BOOK NOW BUTTON (Only for Open Mic) -->
+<a class="book-btn" id="openMicBtn" href="#">Book Now</a>
     </div>
+
+    <!-- Jive Junction Slide -->
+    <div class="slide">
+      <img src="images/jive-junction.jpeg" alt="Jive Junction Event">
+      <p>Jive Junction — Dance. Connect. Have Fun.</p>
+    </div>
+
   </div>
+
 </section>
 
     <!-- Contact Section -->
@@ -123,7 +129,7 @@ what we need is a space that's truly our's - where we can meet, bond, make conne
 
     <!-- Footer -->
     <footer class="footer fade-in">
-        <p>© 2026 Huddle Coffee Co. | Crafted with warmth</p>
+        <p>© 2026 Huddle Coffee Co. | crafted with warmth</p>
     </footer>
 
     <!-- Hamburger Script -->
@@ -144,14 +150,102 @@ what we need is a space that's truly our's - where we can meet, bond, make conne
     });
 </script>
 <script>
-const carousel = document.querySelector('.carousel');
-let scrollAmount = 0;
-setInterval(() => {
-  scrollAmount += 340;
-  if (scrollAmount >= carousel.scrollWidth) scrollAmount = 0;
-  carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-}, 4000);
+// const carousel = document.querySelector('.carousel');
+// let scrollAmount = 0;
+// setInterval(() => {
+//  scrollAmount += 340;
+//  if (scrollAmount >= carousel.scrollWidth) scrollAmount = 0;
+//  carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+// }, 4000);
 </script>
 
+<!-- BOOKING MODAL -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <h3>Book Your Open Mic Slot</h3>
+
+    <label>Select a Wednesday</label>
+    <input type="date" id="datePicker">
+
+    <label>Number of People</label>
+    <input type="number" id="peopleCount" min="1" max="10">
+
+    <label>Your Phone Number</label>
+    <input type="tel" id="phoneNumber" placeholder="Enter phone number">
+
+    <p id="errorMsg" style="color:red;"></p>
+
+    <button id="confirmBooking">Confirm Booking</button>
+  </div>
+</div>
+<script>
+const openMicBtn = document.getElementById('openMicBtn');
+const modal = document.getElementById('bookingModal');
+const picker = document.getElementById('datePicker');
+const people = document.getElementById('peopleCount');
+const phone = document.getElementById('phoneNumber');
+const errorMsg = document.getElementById('errorMsg');
+const confirmBtn = document.getElementById('confirmBooking');
+
+// Open modal
+openMicBtn.addEventListener('click', () => {
+  modal.style.display = 'flex';
+  picker.value = "";
+  people.value = "";
+  phone.value = "";
+  errorMsg.textContent = "";
+});
+
+// Validate Wednesday + future date
+picker.addEventListener('change', () => {
+  const selected = new Date(picker.value);
+  const today = new Date();
+
+  if (selected <= today) {
+    errorMsg.textContent = "Please select a future date.";
+    confirmBtn.disabled = true;
+    return;
+  }
+
+  if (selected.getDay() !== 3) {
+    errorMsg.textContent = "Open Mic happens only on Wednesdays.";
+    confirmBtn.disabled = true;
+    return;
+  }
+
+  errorMsg.textContent = "";
+  confirmBtn.disabled = false;
+});
+
+// Submit booking
+confirmBtn.addEventListener('click', async () => {
+  if (!people.value || people.value < 1) {
+    errorMsg.textContent = "Please enter number of people.";
+    return;
+  }
+
+  if (!phone.value || phone.value.length !== 10) {
+    errorMsg.textContent = "Please enter a valid phone number.";
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("date", picker.value);
+  formData.append("people", people.value);
+  formData.append("phone", phone.value);
+
+  const response = await fetch("https://script.google.com/macros/s/AKfycbxk4S_G6hkMBs_U38ka8SYXC8un3-dygw8PtMUZtucHPOjHR78JFxRlOWYpNGeu5qSZ/exec", {
+    method: "POST",
+    body: formData
+  });
+
+  if (response.ok) {
+    alert("Your booking is confirmed for " + picker.value);
+    modal.style.display = 'none';
+  } else {
+    errorMsg.textContent = "Something went wrong. Please try again.";
+  }
+});
+</script>
 </body>
 </html>

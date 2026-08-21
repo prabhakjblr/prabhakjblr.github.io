@@ -51,10 +51,7 @@ img {
     letter-spacing: 0.5px;
 }
 
-/* ------------------------------ */
-/* HEADER — MONOCHROME */
-/* ------------------------------ */
-
+/* HEADER */
 .header {
     display: flex;
     justify-content: space-between;
@@ -103,9 +100,8 @@ img {
     font-weight: 500;
     font-size: 1rem;
 }
-/* ------------------------------ */
-/* LOGO SIZE*/
-/* ------------------------------ */
+
+/* Logo Size */
 .logo img {
   width: 60px;
   height: auto;
@@ -118,10 +114,7 @@ img {
   }
 }
 
-/* ------------------------------ */
-/* MOBILE MENU — MONOCHROME */
-/* ------------------------------ */
-
+/* MOBILE MENU */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -162,10 +155,7 @@ img {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ------------------------------ */
-/* HERO — MONOCHROME */
-/* ------------------------------ */
-
+/* HERO */
 .hero {
     height: 70vh;
     background: url('images/hero.png') center/cover no-repeat;
@@ -196,10 +186,7 @@ img {
     font-size: 1rem;
 }
 
-/* ------------------------------ */
 /* COMMUNITY */
-/* ------------------------------ */
-
 .community {
     padding: 40px 20px;
     text-align: center;
@@ -212,10 +199,7 @@ img {
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
-/* ------------------------------ */
 /* GALLERY */
-/* ------------------------------ */
-
 .gallery {
     padding: 40px 20px;
 }
@@ -227,10 +211,7 @@ img {
     border: 1px solid #e0e0e0;
 }
 
-/* ------------------------------ */
 /* CONTACT */
-/* ------------------------------ */
-
 .contact {
     padding: 40px 20px;
     text-align: center;
@@ -270,7 +251,7 @@ img {
     background: #333333;
 }
 
-/* Floating Buttons Container */
+/* Floating Buttons */
 .floating-buttons {
     position: fixed;
     bottom: 25px;
@@ -281,7 +262,6 @@ img {
     z-index: 999;
 }
 
-/* Individual Buttons */
 .float-btn {
     width: 50px;
     height: 50px;
@@ -296,13 +276,11 @@ img {
     transition: 0.3s ease;
 }
 
-/* Hover Effect */
 .float-btn:hover {
     background: #333333;
     transform: translateY(-4px);
 }
 
-/* WhatsApp Button Color Accent */
 .whatsapp-float {
     background: #25D366;
 }
@@ -311,20 +289,15 @@ img {
     background: #1ea955;
 }
 
-/* Instagram Gradient */
 .insta-float {
     background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
 }
 
 .insta-float:hover {
     transform: translateY(-4px);
-    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
 }
 
-/* ------------------------------ */
 /* FOOTER */
-/* ------------------------------ */
-
 .footer {
     background-color: #f2f2f2;
     text-align: center;
@@ -333,10 +306,7 @@ img {
     color: #111111;
 }
 
-/* ------------------------------ */
 /* RESPONSIVE BREAKPOINTS */
-/* ------------------------------ */
-
 @media (min-width: 600px) {
     .hero-text h1 {
         font-size: 2.6rem;
@@ -379,16 +349,12 @@ img {
     }
 }
 
-/* ------------------------------ */
 /* DARK MODE */
-/* ------------------------------ */
-
 .dark-mode {
     background-color: #111111;
     color: #f2f2f2;
 }
 
-/* Header */
 .dark-mode .header {
     background-color: #1a1a1a;
     box-shadow: 0 4px 10px rgba(255,255,255,0.1);
@@ -398,17 +364,14 @@ img {
     color: #f2f2f2;
 }
 
-/* Hamburger */
 .dark-mode .hamburger span {
     background-color: #f2f2f2;
 }
 
-/* Hero */
 .dark-mode .hero-overlay {
     background: rgba(0,0,0,0.55);
 }
 
-/* Sections */
 .dark-mode .community,
 .dark-mode .gallery,
 .dark-mode .contact {
@@ -416,23 +379,19 @@ img {
     color: #f2f2f2;
 }
 
-/* Cards / Images */
 .dark-mode img {
     border-color: #333333;
 }
 
-/* Footer */
 .dark-mode .footer {
     background-color: #1a1a1a;
     color: #f2f2f2;
 }
 
-/* Floating Buttons */
 .dark-mode .float-btn {
     box-shadow: 0 6px 20px rgba(255,255,255,0.15);
 }
 
-/* Toggle Button */
 .dark-toggle {
     background: none;
     border: none;
@@ -446,6 +405,8 @@ img {
 .dark-mode .dark-toggle {
     color: #f2f2f2;
 }
+
+/* EVENTS */
 .events {
   text-align: center;
   padding: 40px 20px;
@@ -457,20 +418,72 @@ img {
   gap: 20px;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  position: relative;
 }
 
+/* ⭐ REQUIRED FIX */
 .slide {
-  min-width: 320px;
-  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 0;
 }
-
+.slide p {
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+/* ⭐ REQUIRED FIX */
 .slide img {
-  width: 100%;
-  max-height: 450px;
-  object-fit: contain;   /* shows full poster, no cropping */
-  background: #ffffff;   /* clean white background behind posters */
-  border-radius: 12px;
-  padding: 10px;         /* adds premium spacing */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  padding: 0;          /* ⭐ FIX */
+  box-shadow: none;    /* ⭐ FIX */
+  pointer-events: none;
+}
+/* ⭐ REQUIRED FIX */
+.book-btn {
+  display: block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;   /* ⭐ ensures browser treats it as clickable */
+  text-decoration: none;
+  position: relative;
+  z-index: 5;          /* ⭐ FIX */
 }
 
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 320px;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
