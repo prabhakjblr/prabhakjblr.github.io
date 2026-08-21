@@ -259,7 +259,7 @@ confirmBtn.addEventListener('click', async () => {
     const data = await response.json();
     
     if (data.status === "success") {
-      alert("Your booking is confirmed for " + picker.value);
+      alert("Your booking is confirmed for " + picker.value + " Please reach out to us on 96866 47373 for any queries");
       modal.style.display = 'none';
     } else {
       errorMsg.textContent = "Backend Error: " + data.message;
