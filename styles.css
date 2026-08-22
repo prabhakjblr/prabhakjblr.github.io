@@ -503,3 +503,64 @@ img {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+/* Menu Grid */
+.menu-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+  justify-content: start;
+  margin-top: 20px;
+}
+
+.menu-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;   /* same size as Jive Junction */
+  object-fit: contain;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  pointer-events: auto;   /* ⭐ FIX — makes images clickable */
+}
+
+.menu-img:hover {
+  transform: scale(1.03);
+}
+
+/* Fullscreen Image Modal */
+.img-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;   /* ⭐ must be above everything */
+}
+
+.img-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  z-index: 99999;
+}
+
+.img-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .menu-grid {
+    grid-template-columns: 1fr;   /* stack vertically */
+  }
+}
