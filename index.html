@@ -3,20 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huddle Coffee Co.</title>
+    <title>huddle</title>
 
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE3Z93D5E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-1WE3Z93D5E');
-</script>
 <body>
 
     <!-- Floating Social Buttons -->
@@ -53,8 +45,8 @@
         <!-- Navigation -->
         <nav id="navMenu" class="nav-links">
             <a href="#home">why we exist</a>
-            <a href="#community">events</a>
-            <!-- a href="#gallery">Gallery</a -->
+            <a href="#menu">menu`</a>
+			<a href="#community">events</a>
             <a href="#contact">connect</a>
         </nav>
     </header>
@@ -75,6 +67,16 @@
     what we need is a space that's truly our's - where we can meet, bond, make connections, do deep work, have fun and truly huddle - over great coffee and simple food. a place where we can live our lives and explore ourselves</p>
 </section>
 
+<!-- menusection -->
+<section class="menu-section">
+  <h2>our menu</h2>
+<p> we serve single‑origin speciality coffee sourced from the lush estates of chikmagalur. Our ingredients are premium and thoughtfully chosen — our breads come from one of Bengaluru’s finest artisanal bakeries. we use high‑quality cheese, syrups, matcha, and produce. clean, honest ingredients and simple recipes come together to create delicious food and drinks.</p>
+  <div class="menu-grid">
+    <img src="images/FoodMenu.jpeg" class="menu-img" alt="Menu Item 1">
+    <img src="images/DrinksMenu.jpeg" class="menu-img" alt="Menu Item 2">
+    </div>
+</section>
+
 <!-- Community Section -->
 <section id="community" class="community fade-in">
     <h2>events @ huddle</h2>
@@ -88,15 +90,15 @@
     <!-- Open Mic Slide -->
     <div class="slide">
       <img src="images/open-mic.png" alt="Open Mic Night">
-      <p>Open Mic Night — Make Yours Unforgettable!</p>
+      <p>open mic night — make yours unforgettable!</p>
   <!-- ⭐ BOOK NOW BUTTON (Only for Open Mic) -->
-<a class="book-btn" id="openMicBtn" href="#">Book Now</a>
+<a class="book-btn" id="openMicBtn" href="#">rsvp</a>
     </div>
 
     <!-- Jive Junction Slide -->
     <div class="slide">
       <img src="images/jive-junction.jpeg" alt="Jive Junction Event">
-      <p>Jive Junction — Dance. Connect. Have Fun.</p>
+      <p>jive junction — dance. connect. have fun.</p>
     </div>
 
   </div>
@@ -137,7 +139,7 @@
 
     <!-- Footer -->
     <footer class="footer fade-in">
-        <p>© 2026 Huddle Coffee Co. | crafted with warmth</p>
+        <p>© 2026 huddle | crafted for you in hennur, blr</p>
     </footer>
 
     <!-- Hamburger Script -->
@@ -188,6 +190,11 @@
     <button id="confirmBooking">Confirm Booking</button>
   </div>
 </div>
+<div id="imgModal" class="img-modal">
+  <span id="imgModalClose" class="img-modal-close">&times;</span>
+  <img id="imgModalContent" src="">
+</div>
+
 <script>
 const openMicBtn = document.getElementById('openMicBtn');
 const modal = document.getElementById('bookingModal');
@@ -276,6 +283,31 @@ confirmBtn.addEventListener('click', async () => {
     errorMsg.textContent = "Something went wrong. Please try again.";
   }
 });
+const menuImages = document.querySelectorAll('.menu-img');
+const imgModal = document.getElementById('imgModal');
+const imgModalContent = document.getElementById('imgModalContent');
+const imgModalClose = document.getElementById('imgModalClose');
+
+// Open modal with clicked image
+menuImages.forEach(img => {
+  img.addEventListener('click', () => {
+    imgModal.style.display = 'flex';
+    imgModalContent.src = img.src;
+  });
+});
+
+// Close modal
+imgModalClose.addEventListener('click', () => {
+  imgModal.style.display = 'none';
+});
+
+// Close when clicking outside image
+imgModal.addEventListener('click', (e) => {
+  if (e.target === imgModal) {
+    imgModal.style.display = 'none';
+  }
+});
 </script>
+
 </body>
 </html>
